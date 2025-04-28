@@ -70,6 +70,7 @@ export interface CalendarProps<DateType> {
   defaultValue?: DateType;
   mode?: CalendarMode;
   fullscreen?: boolean;
+  showWeek?: boolean;
   onChange?: (date: DateType) => void;
   onPanelChange?: (date: DateType, mode: CalendarMode) => void;
   onSelect?: (date: DateType, selectInfo: SelectInfo) => void;
@@ -111,6 +112,7 @@ function generateCalendar<DateType>(generateConfig: GenerateConfig<DateType>) {
       mode,
       validRange,
       fullscreen = true,
+      showWeek,
       onChange,
       onPanelChange,
       onSelect,
@@ -333,6 +335,7 @@ function generateCalendar<DateType>(generateConfig: GenerateConfig<DateType>) {
           picker={panelMode}
           disabledDate={mergedDisabledDate}
           hideHeader
+          showWeek={showWeek}
         />
       </div>,
     );
